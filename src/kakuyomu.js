@@ -31,8 +31,16 @@ function htmlToSource(html){
 }
 
 function sourceToHTML(source){
-    var escaped = escapeTagChars(source);
-    var bouten = escaped.replace(/《《(.+?)》》/g, function(_, tango) {
+
+    var escapedAngles = source.replace(/\&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    var tatechuyoko = escapedAngles.replace(/([^0-9a-zA-Z\!\?])([0-9a-zA-Z\!\?]{1,2})([^0-9a-zA-Z\!\?])/g, function(_, x, y, z){
+        return `${x}<span class="tatechuyoko">${y}</span>${z}`;
+    });
+
+    var escapeNewline = tatechuyoko.replace(/\n/g, "<br></br>");
+
+    var bouten = escapeNewline.replace(/《《(.+?)》》/g, function(_, tango) {
         var xs = "";
         for (var i = 0; i < tango.length; i++) {
             xs += `<ruby>${tango[i]}<rt>丶</rt></ruby>`

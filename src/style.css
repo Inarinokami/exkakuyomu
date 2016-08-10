@@ -5,6 +5,11 @@ body {
     writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
     -epub-writing-mode: vertical-rl;
-
     font-family: "游明朝体", "Yu Mincho", YuMincho, serif;
+}
+
+span.tatechuyoko {
+
+    text-combine-upright: all;
+
 }
