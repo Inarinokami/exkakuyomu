@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "カクヨム非公式拡張",
+    "version": "1.0.0",
+
+    "background": {
+        "scripts": [
+            "src/jszip.js",
+            "src/util.js",
+            "src/kakuyomu.js",
+            "src/epub.js",
+            "src/background.js"
+        ]
+    },
+
+    "default_locale": "ja",
+    "description": "カクヨムの作品の電子書籍ファイルを作成します",
+    "icons": {
+        "64": "src/icon.png"
+    },
+    "page_action": {
+        "default_icon": "src/icon.png",
+        "default_title": "カクヨム非公式拡張",
+        "default_popup": "src/popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "background",
+        "https://kakuyomu.jp/works/*"
+    ]
+}

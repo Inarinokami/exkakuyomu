@@ -1,0 +1,10 @@
+body {
+    vertical-align: baseline;
+    -webkit-vertical-align: baseline;
+    -epub-vertical-align: baseline;
+    writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+    -epub-writing-mode: vertical-rl;
+
+    font-family: "游明朝体", "Yu Mincho", YuMincho, serif;
+}
