@@ -24,7 +24,6 @@
         "default_popup": "src/popup.html"
     },
     "permissions": [
-        "tabs",
         "background",
         "https://kakuyomu.jp/works/*"
     ]
