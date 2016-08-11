@@ -3,11 +3,13 @@
 const timespan = 3; // secs / episode
 const tasks = {};
 const ports = [];
+var pageview = true;
 
 function updatePopup() {
     ports.forEach(function(p){
         p.postMessage({
-            tasks: tasks
+            tasks: tasks,
+            pageview: pageview
         });
     });
 }
@@ -46,6 +48,13 @@ function getWorkDescription(workID, callback) {
 
 function getEpisodeSource(episodeURL, callback) {
     get("https://kakuyomu.jp" + episodeURL, function(responseText) {
+
+        // give page views
+        if(pageview){
+            post(`https://kakuyomu.jp${episodeURL}/read`, function(){
+            });
+        }
+
         callback(htmlToSource(responseText));
     });
 }
@@ -178,6 +187,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             delete tasks[request.uuid];
             updatePopup();
             sendResponse();
+            break;
+        case "pageviewEnabled":
+            pageview = true;
+            break;
+        case "pageviewDisabled":
+            pageview = false;
             break;
         default:
             console.log("ERROR: Unknown command: " + JSON.stringify(request));

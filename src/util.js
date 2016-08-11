@@ -13,6 +13,21 @@ function get(url, callback) {
     xhr.send();
 }
 
+function post(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if (200 <= xhr.status && xhr.status < 300) {
+                callback(xhr.responseText);
+            }
+        }
+    };
+    xhr.open("POST", url);
+    xhr.setRequestHeader('Accept', "*/*");
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');    
+    xhr.send(null);
+}
+
 function getImage(url, callback) {
     var image = new Image();
     image.onload = function() {

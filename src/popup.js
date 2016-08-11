@@ -21,6 +21,11 @@ window.onload = function() {
         });
     });
 
+    var pageview = document.querySelector("input#pageview");
+    pageview.addEventListener("change", function(){
+        chrome.runtime.sendMessage({ command: pageview.checked ? "pageviewEnabled" : "pageviewDisabled" }, function(response) {
+        });
+    });
 
     var port = chrome.extension.connect({name: "Status Communication"});
     port.onMessage.addListener(function(msg) {
@@ -49,5 +54,8 @@ window.onload = function() {
             }
             status.appendChild(div);
         }
+
+
+        pageview.checked = msg.pageview;
     });
 };
