@@ -15,8 +15,8 @@
 ### 拡張機能のインストール(使う前に一度だけ実行します)
 
 1. https://github.com/Inarinokami/exkakuyomu/releases/download/v0.9.0/exkakuyomu.crx をクリックして、拡張機能のパッケージ`exkakuyomu.crx`をダウンロードします。
-2. 拡張機能のメニュー[chrome://extensions/](chrome://extensions/)を開き、ここに`exkakuyomu.crx`をドラッグアンドドロップします。
-3. インストールの確認ダイアログが出るので承認すると、拡張機能の一覧に『カクヨム非公式拡張』が追加されます。![カクヨム非公式拡張](docs/extension.png)
+2. 拡張機能のメニュー [chrome://extensions/](chrome://extensions/) を開き、ここに`exkakuyomu.crx`をドラッグアンドドロップします。
+3. インストールの確認ダイアログが出るので承認すると、拡張機能の一覧に『カクヨム非公式拡張』が追加されます。
 
 
 ### 電子書籍形式(epub形式)への作品の変換(読みたい作品それぞれについて、以下の手順を繰り返します)
