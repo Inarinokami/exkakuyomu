@@ -3,17 +3,17 @@
 function createEpub(work, callback){
 
     var coverTable = {
-        "ファンタジー": "cover/fantasy.png",
-        "SF": "cover/sf.png",
-        "恋愛・ラブコメ": "cover/love.png",
-        "現代アクション": "cover/action.png",
-        "現代ドラマ": "cover/drama.png",
-        "ホラー": "cover/horror.png",
-        "ミステリー": "cover/mystery.png",
-        "歴史・時代": "cover/history.png",
-        "エッセイ・ノンフィクション": 'cover/cover.png',
-        "創作論・評論": 'cover/cover.png',
-        "その他": 'cover/cover.png'
+        "ファンタジー": "cover/fantasy.jpg",
+        "SF": "cover/sf.jpg",
+        "恋愛・ラブコメ": "cover/love.jpg",
+        "現代アクション": "cover/action.jpg",
+        "現代ドラマ": "cover/drama.jpg",
+        "ホラー": "cover/horror.jpg",
+        "ミステリー": "cover/mystery.jpg",
+        "歴史・時代": "cover/history.jpg",
+        "エッセイ・ノンフィクション": 'cover/cover.jpg',
+        "創作論・評論": 'cover/cover.jpg',
+        "その他": 'cover/cover.jpg'
     };
 
     get(chrome.extension.getURL("src/style.css"), function(style) {
