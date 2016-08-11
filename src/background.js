@@ -1,6 +1,6 @@
 "use strict";
 
-const timespan = 3; // secs / episode
+const timespan = 2; // secs / episode
 const tasks = {};
 const ports = [];
 var pageview = true;
@@ -35,13 +35,37 @@ function getWorkDescription(workID, callback) {
                 }
             }
         }
+
+        function extractIntroduction(elements){
+            var text = "";
+            for (var i = 0; i < elements.length; i++) {
+                var e = elements[i];
+                switch(e.nodeType){
+                    case Node.ELEMENT_NODE:
+                        if(e.tagName === "BR"){
+                            //text += "\n";
+                        }else if(e.tagName === "SPAN" && e.classList.contains("ui-truncateText-restText")){
+                            text += extractIntroduction(e.childNodes);
+                        }
+                        break;
+                    case Node.TEXT_NODE:
+                        text += e.textContent;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return text;
+        }
+
         callback({
             episodes: episodeList,
             title: el.querySelector("h1#workTitle").textContent,
             author: el.querySelector("span#workAuthor-activityName a").textContent,
             color: el.querySelector("p#workColor").style.backgroundColor,
             genre: el.querySelector("#workGenre a").textContent,
-            catchphrase: el.querySelector("span#catchphrase-body") && el.querySelector("span#catchphrase-body").textContent
+            catchphrase: el.querySelector("span#catchphrase-body") && el.querySelector("span#catchphrase-body").textContent,
+            introduction: extractIntroduction(el.querySelector('#introduction').childNodes)
         });
     });
 }
@@ -73,6 +97,16 @@ function downloadAsText(id) {
             status: 0,
             length: episodes.length
         };
+
+        zip.file("description.txt",
+`【作品名】${work.title}
+【作者】${work.author}
+【イメージカラー】${work.color}
+【ジャンル】${work.genre}
+【キャッチフレーズ】${work.catchphrase}
+【あらすじ】
+${work.introduction}`);
+
         function next() {
             if( ! tasks[uuid]){
                 // canceled
