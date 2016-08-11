@@ -14,7 +14,7 @@
 
 ### 拡張機能のインストール(使う前に一度だけ実行します)
 
-1. githubからパッケージをダウンロードします。プロジェクトページ( https://github.com/Inarinokami/exkakuyomu )の右上にある緑色のボタン"Clone or download"を押して"Download ZIP"を選択するのが最も簡単です。![](docs/getextension.png)
+1. https://github.com/Inarinokami/exkakuyomu/releases/download/v0.9.0/exkakuyomu.crx をクリックして、拡張機能のパッケージをダウンロードします。
 2. 1でダウンロードした`exkakuyomu-master.zip`を適当なフォルダに展開します。展開したフォルダの中に`exkakuyomu.crx`というファイルがあるので、Chromeのメニューから『拡張機能』を開き、`exkakuyomu.crx`をドラッグアンドドロップします。
 3. インストールの確認ダイアログが出るので承認すると、拡張機能の一覧に『カクヨム非公式拡張』が追加されます。![カクヨム非公式拡張](docs/extension.png)
 
