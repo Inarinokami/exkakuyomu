@@ -34,7 +34,7 @@ function sourceToHTML(source){
 
     var escapedAngles = source.replace(/\&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-    var tatechuyoko = escapedAngles.replace(/([^0-9a-zA-Z\!\?])([0-9a-zA-Z\!\?]{1,2})([^0-9a-zA-Z\!\?])/g, function(_, x, y, z){
+    var tatechuyoko = escapedAngles.replace(/(?!(&amp;|&lt;|&gt;))([^0-9a-zA-Z\!\?])([0-9a-zA-Z\!\?]{1,2})([^0-9a-zA-Z\!\?])/g, function(_, a, x, y, z){
         return `${x}<span class="tatechuyoko">${y}</span>${z}`;
     });
 
