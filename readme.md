@@ -17,7 +17,7 @@
 　以下の手順を最初に一度だけ実行します。この拡張はいわゆる『野良拡張』で、Play Storeには登録されていないので検索しても出てきません。
 
 1. https://github.com/Inarinokami/exkakuyomu/releases/download/v0.9.0/exkakuyomu.crx をクリックして、拡張機能のパッケージ`exkakuyomu.crx`をダウンロードします。
-2. Google Chromeの拡張機能のメニュー <a href="chrome://extensions/">chrome://extensions/</a> を開き、ここに`exkakuyomu.crx`をドラッグアンドドロップします。
+2. Google Chromeの拡張機能のメニュー [chrome://extensions/](chrome://extensions/) を開き、ここに`exkakuyomu.crx`をドラッグアンドドロップします。
 3. インストールの確認ダイアログが出るので承認すると、拡張機能の一覧に『カクヨム非公式拡張』が追加されます。
 
 
