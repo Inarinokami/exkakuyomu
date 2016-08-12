@@ -32,13 +32,31 @@ function htmlToSource(html){
 
 function sourceToHTML(source){
 
-    var escapedAngles = source.replace(/\&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    var exclamations = source.replace(/([^!?！？])(\!\!|！！|\!\?|！？|\?\!|？！)(?![!?！？])/g, function(_, a, b){
+            if(b === "!!" || b === "！！"){
+                return a + "‼";
+            }else if(b === "!?" || b === "！？"){
+                return a + "⁉";
+            }else if(b === "?!" || b === "？！"){
+                return a + "⁈";
+            }else{
+                return a + b;
+            }
+        }).replace(/([^!?！？])(\!|\?)(?![!?！？])/g, function(_, a, b){
+            if(b === "!"){
+                return "！";
+            }else if(b === "?"){
+                return "？";
+            }
+        });
 
-    var tatechuyoko = escapedAngles.replace(/(?!(&amp;|&lt;|&gt;))([^0-9a-zA-Z\!\?])([0-9a-zA-Z\!\?]{1,2})([^0-9a-zA-Z\!\?])/g, function(_, a, x, y, z){
-        return `${x}<span class="tatechuyoko">${y}</span>${z}`;
-    });
+    var escapedAngles = exclamations.replace(/\&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-    var escapeNewline = tatechuyoko.replace(/\n/g, "<br></br>");
+    //var tatechuyoko = escapedAngles.replace(/(?!(&amp;|&lt;|&gt;))([^0-9a-zA-Z\!\?])([0-9a-zA-Z\!\?]{1,2})([^0-9a-zA-Z\!\?])/g, function(_, a, x, y, z){
+    //    return `${x}<span class="tatechuyoko">${y}</span>${z}`;
+    //});
+
+    var escapeNewline = escapedAngles.replace(/\n/g, "<br></br>");
 
     var bouten = escapeNewline.replace(/《《(.+?)》》/g, function(_, tango) {
         var xs = "";
