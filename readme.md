@@ -71,10 +71,10 @@
 
 ## 生成されたepubファイルのビューア別対応状況
 
-* Readium(デスクトップ) ……　◎
-* Google Play ブックス(Android) ……　○（縦中横が正しく表示されない）
-* Kindle(Android) ……　○（縦中横が正しく表示されない。mobi形式に変換する必要あり）
-* Adobe Digital Editions(デスクトップ) ……　○（縦中横が正しく表示されない）
+* Readium(デスクトップ) ……　○
+* Google Play ブックス(Android) ……　○
+* Kindle(Android) ……　○（ただしmobi形式に変換する必要あり）
+* Adobe Digital Editions(デスクトップ) ……　○
 * Kindle Previewer(デスクトップ) ……　△（mobi形式への変換は正常に完了するが、プレビューは崩れる）
 * FBReader(Android)　……　△（横書きで表示される）
 * Google Play ブックス(デスクトップ) ……　×
