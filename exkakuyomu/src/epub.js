@@ -21,26 +21,26 @@ function escapeTitle(title){
 function createEpub(work, callback){
 
     var coverTable = {
-        "ファンタジー": "cover/fantasy.jpg",
-        "SF": "cover/sf.jpg",
-        "恋愛・ラブコメ": "cover/love.jpg",
-        "現代アクション": "cover/action.jpg",
-        "現代ドラマ": "cover/drama.jpg",
-        "ホラー": "cover/horror.jpg",
-        "ミステリー": "cover/mystery.jpg",
-        "歴史・時代": "cover/history.jpg",
-        "エッセイ・ノンフィクション": 'cover/cover.jpg',
-        "創作論・評論": 'cover/cover.jpg',
-        "その他": 'cover/cover.jpg'
+        "ファンタジー": "fantasy.jpg",
+        "SF": "sf.jpg",
+        "恋愛・ラブコメ": "love.jpg",
+        "現代アクション": "action.jpg",
+        "現代ドラマ": "drama.jpg",
+        "ホラー": "horror.jpg",
+        "ミステリー": "mystery.jpg",
+        "歴史・時代": "history.jpg",
+        "エッセイ・ノンフィクション": 'cover.jpg',
+        "創作論・評論": 'cover.jpg',
+        "その他": 'cover.jpg'
     };
 
-    get(chrome.extension.getURL("src/style.css"), function(style) {
-        getImage(chrome.extension.getURL(coverTable[work.genre]), function(image) {
-            get(chrome.extension.getURL("src/container.xml"), function(container) {
-                get(chrome.extension.getURL("src/bodymatter.xml"), function(bodymatterSource) {
-                    get(chrome.extension.getURL("src/nav.xhtml"), function(navSource) {
-                        get(chrome.extension.getURL("src/toc.xhtml"), function(tocSource) {
-                            get(chrome.extension.getURL("src/content.xml"), function(contentSource) {
+    get(chrome.extension.getURL("template/style.css"), function(style) {
+        getImage(chrome.extension.getURL("cover/" + coverTable[work.genre]), function(image) {
+            get(chrome.extension.getURL("template/container.xml"), function(container) {
+                get(chrome.extension.getURL("template/bodymatter.xhtml"), function(bodymatterSource) {
+                    get(chrome.extension.getURL("template/nav.xhtml"), function(navSource) {
+                        get(chrome.extension.getURL("template/toc.xhtml"), function(tocSource) {
+                            get(chrome.extension.getURL("template/content.xml"), function(contentSource) {
 
                                 var episodes = work.episodes;
                                 var title = work.title;
@@ -68,21 +68,16 @@ function createEpub(work, callback){
                                     var a = document.createElement("a");
                                     a.setAttribute("href", `bodymatter_${padzero(index)}.xhtml`);
                                     a.appendChild(span);
-
                                     var li = document.createElement("li");
                                     li.appendChild(a);
-
                                     navDom.querySelector("#toc ol").appendChild(li);
-
 
                                     var span = document.createElement("span");
                                     span.textContent = escapeTitle(episode.name);
-
                                     var a = document.createElement("a");
                                     a.setAttribute("epub:type", "bodymatter");
                                     a.setAttribute("href", `bodymatter_${padzero(index)}.xhtml`);
                                     a.appendChild(span);
-
                                     var li = document.createElement("li");
                                     li.appendChild(a);
 
