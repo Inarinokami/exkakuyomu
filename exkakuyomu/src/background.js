@@ -3,7 +3,7 @@
 const timespan = 1; // secs / episode
 const tasks = {};
 const ports = [];
-var pageview = false;
+var pageview = true;
 
 function updatePopup() {
     ports.forEach(function(p){
