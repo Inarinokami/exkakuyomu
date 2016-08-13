@@ -1,9 +1,9 @@
 "use strict";
 
-const timespan = 2; // secs / episode
+const timespan = 1; // secs / episode
 const tasks = {};
 const ports = [];
-var pageview = true;
+var pageview = false;
 
 function updatePopup() {
     ports.forEach(function(p){

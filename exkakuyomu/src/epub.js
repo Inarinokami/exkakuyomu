@@ -109,6 +109,7 @@ function createEpub(work, callback){
                                 });
                                 oebps.file("content.opf", (new XMLSerializer()).serializeToString(contentDom));
 
+                                // render colver image
                                 var canvas = document.createElement("canvas");
                                 canvas.width = image.width;
                                 canvas.height = image.height;
@@ -116,10 +117,13 @@ function createEpub(work, callback){
                                 g.drawImage(image, 0, 0);
                                 g.textBaseline = "top";
                                 g.fillStyle = "black";
-                                g.font = ((image.width - 400) / title.length).toFixed() + "px serif";
-                                g.fillText(title, 200, 600);
-                                g.font = "100px serif";
-                                g.fillText(author, 200, 900);
+                                g.font = "90px serif";
+                                g.fillText(title.slice(0, 9), 200, 400);
+                                g.fillText(title.slice(9, 18), 200, 500);
+                                g.fillText(title.slice(18, 27), 200, 600);
+                                g.fillText(title.slice(27, 36), 200, 700);
+                                g.font = "70px serif";
+                                g.fillText(author, 200, 950);
 
                                 var s = 20;
                                 g.fillStyle = color;
@@ -129,9 +133,26 @@ function createEpub(work, callback){
                                 g.fillRect(canvas.width - s, 0, s, canvas.height);
 
                                 if (work.catchphrase) {
-                                    g.font = ((image.width - 40) / work.catchphrase.length * 2).toFixed() + "px serif";
                                     g.fillStyle = "white";
-                                    g.fillText(work.catchphrase, 20, 1400);
+                                    //g.font = ((image.width - 40) / work.catchphrase.length * 2).toFixed() + "px serif";
+                                    //g.fillText(work.catchphrase, 20, 1400);
+                                    var fontSize = 80;
+                                    g.font = `${fontSize}px serif`;
+                                    g.save();
+                                    if(work.catchphrase.length < 13){
+                                        g.translate(80, 1370);
+                                        g.fillText(work.catchphrase, 0, 0);
+                                    }else if(work.catchphrase.length < 25){
+                                        g.translate(80, 1300);
+                                        g.fillText(work.catchphrase.slice(0, 13), 0, 0);
+                                        g.fillText(work.catchphrase.slice(13, 25), 0, fontSize + 20);
+                                    }else{
+                                        g.translate(80, 1250);
+                                        g.fillText(work.catchphrase.slice(0, 13), 0, 0);
+                                        g.fillText(work.catchphrase.slice(13, 25), 0, fontSize + 20);
+                                        g.fillText(work.catchphrase.slice(25, 36), 0, fontSize * 2 + 40);
+                                    }
+                                    g.restore();
                                 }
 
                                 var tocDom = (new window.DOMParser()).parseFromString(tocSource, "text/xml");
