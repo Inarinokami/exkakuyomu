@@ -14,11 +14,9 @@
 
 ### 拡張機能のインストール
 
-　以下の手順を最初に一度だけ実行します。この拡張はいわゆる『野良拡張』で、Play Storeには登録されていないので検索しても出てきません。
+このツールはGoogle Chrome拡張です。Google Chromeを使って、以下のページからインストールしてください。
 
-1. https://github.com/Inarinokami/exkakuyomu/releases/download/v0.9.0/exkakuyomu.crx をクリックして、拡張機能のパッケージ`exkakuyomu.crx`をダウンロードします。
-2. Google Chromeの拡張機能のメニュー [chrome://extensions/](chrome://extensions/) を開き、ここに`exkakuyomu.crx`をドラッグアンドドロップします。
-3. インストールの確認ダイアログが出るので承認すると、拡張機能の一覧に『カクヨム非公式拡張』が追加されます。
+* [カクヨム非公式拡張 - Chrome ウェブストア](https://chrome.google.com/webstore/detail/%E3%82%AB%E3%82%AF%E3%83%A8%E3%83%A0%E9%9D%9E%E5%85%AC%E5%BC%8F%E6%8B%A1%E5%BC%B5/peaodhahcmfdhcohpodeedkkicbndbak/related?hl=ja&gl=JP)
 
 
 ### 電子書籍形式(epub形式)への作品の変換
