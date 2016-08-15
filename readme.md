@@ -16,7 +16,7 @@
 
 このツールはGoogle Chrome拡張です。Google Chromeを使って、以下のページからインストールしてください。
 
-* [カクヨム非公式拡張 - Chrome ウェブストア](https://chrome.google.com/webstore/detail/%E3%82%AB%E3%82%AF%E3%83%A8%E3%83%A0%E9%9D%9E%E5%85%AC%E5%BC%8F%E6%8B%A1%E5%BC%B5/peaodhahcmfdhcohpodeedkkicbndbak/related?hl=ja&gl=JP)
+* [カクヨム非公式拡張 - Chrome ウェブストア](https://chrome.google.com/webstore/detail/%E3%82%AB%E3%82%AF%E3%83%A8%E3%83%A0%E9%9D%9E%E5%85%AC%E5%BC%8F%E6%8B%A1%E5%BC%B5/peaodhahcmfdhcohpodeedkkicbndbak?hl=ja&gl=JP)
 
 
 ### 電子書籍形式(epub形式)への作品の変換
